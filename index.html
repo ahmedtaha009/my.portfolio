@@ -1,0 +1,1455 @@
+<html lang="en"><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/content/location/location.js" id="nimlmejbmnecnaghgmbahmbaddhjbecg"></script><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/libs/extend-native-history-api.js"></script><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/libs/requests.js"></script><head><script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="{&quot;blacklistIframeSrc&quot;:[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//www.google.com/recaptcha/enterprise/anchor&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;,&quot;//www.ukrnafta.com/data/map/&quot;,&quot;//maps.google.com/maps&quot;,&quot;//www.openstreetmap.org/export/embed.html&quot;,&quot;//www.google.com/maps/d/u/3/embed&quot;,&quot;//itm.ebaydesc.com/itmdesc&quot;,&quot;//books.google.com/books&quot;,&quot;//embed.podcasts.apple.com&quot;,&quot;//www.paypal.com/smartchat&quot;,&quot;//www.centurylink.com/assets/includes/common/sfChatiFrame.html&quot;,&quot;//macmillan-prod-gen.ada.support/embed&quot;,&quot;//macmillan-prod-gen.ada.support/chat&quot;,&quot;//ctl-consumer.my.site.com/&quot;],&quot;whitelistDomainsForPostBody&quot;:[&quot;youtube.com&quot;]}" data-dynamic-id="d28ce4ab-0d7c-4d8f-ae8e-1c44943317e6" src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/executors/200.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YASSEN TAHA  -Social Media Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #ffee00;
+            --secondary-color: #00b7ff;
+            --accent-color: #ff7300;
+            --dark-color: #000000;
+            --light-color: #5a121c;
+            --text-color: #ffffff;
+            --card-bg: #374151;
+            --nav-bg: rgba(17, 24, 39, 0.95);
+            --border-color: #4b5563;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--nav-bg);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links i {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+
+        .nav-links a:hover i {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Favicon styles */
+        .favicon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #850000e3, #922900);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            margin-bottom: 20px;
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-img-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-img-container:hover::before {
+            opacity: 1;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cta-btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .secondary-btn {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .primary-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 0;
+            background-color: var(--dark-color);
+        }
+
+        .section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            color: var(--accent-color);
+        }
+
+        .skill-category h3 i {
+            font-size: 1.4rem;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .certificate-item {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .certificate-item:hover .certificate-overlay {
+            opacity: 1;
+        }
+
+        .certificate-overlay i {
+            color: white;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .certificate-img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            object-position: center;
+            background-color: var(--light-color);
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-item:hover .certificate-img {
+            transform: scale(1.1);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image-container {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-title i {
+            color: var(--accent-color);
+        }
+
+        .project-description {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-tag:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+
+        .project-link:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .project-link i {
+            font-size: 1.1rem;
+        }
+
+        /* Copies Section */
+        .copies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .copy-item {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .copy-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .copy-item:hover .copy-overlay {
+            opacity: 1;
+        }
+
+        .copy-overlay i {
+            color: white;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .copy-img {
+            width: 100%;
+            height: 320px;
+            object-fit: contain;
+            object-position: center;
+            background-color: var(--light-color);
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .copy-item:hover .copy-img {
+            transform: scale(1.1);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Video Script Section */
+        .video-script-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: start;
+        }
+
+        .script-item {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .script-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .script-info {
+            padding: 20px;
+        }
+
+        .script-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .script-info p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .script-files {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .script-files h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .script-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .script-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .script-link:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            transform: translateX(5px);
+        }
+
+        .script-link i {
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-info {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            color: var(--text-color);
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .contact-link:hover {
+            background-color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-link:hover .contact-icon {
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            transform: scale(1.1);
+        }
+
+        .contact-link:hover .contact-text h4 {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--light-color);
+            color: white;
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.5rem 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            header {
+                padding: 100px 0 60px;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+                object-position: center top;
+                filter: brightness(1.15) contrast(1.15);
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+
+            .project-image-container {
+                height: 180px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .copies-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .copy-img {
+                height: 280px;
+            }
+
+            .certificate-img {
+                height: 250px;
+            }
+
+            .video-script-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .modal-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+
+            .modal-close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 1s ease forwards;
+        }
+    </style>
+<script bis_use="true" type="text/javascript" charset="utf-8" nonce="" data-dynamic-id="d28ce4ab-0d7c-4d8f-ae8e-1c44943317e6" src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/executors/101.js"></script></head>
+<body __processed_0f83dd67-7d78-4356-b198-99fc8dee2cf6__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6Im5pbWxtZWpibW5lY25hZ2hnbWJhaG1iYWRkaGpiZWNnIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJlbmFibGVkIiwiRkFDRUJPT0siOiJlbmFibGVkIiwiVFdJVFRFUiI6ImVuYWJsZWQiLCJSRURESVQiOiJlbmFibGVkIiwiUElOVEVSRVNUIjoiZW5hYmxlZCIsIklOU1RBR1JBTSI6ImVuYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZW5hYmxlZCIsIkNPTkZJRyI6ImRpc2FibGVkIn0sInZlcnNpb24iOiIyLjAuNDciLCJzY29yZSI6MjAwNDcwfV0=" style="overflow: auto;">
+    <nav>
+        <div class="container nav-container" bis_skin_checked="1">
+            <a href="#" class="logo">
+               
+                YT
+            </a>
+            <ul class="nav-links">
+                <li>
+                    <a href="#about">
+                        <i class="fas fa-user"></i>
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills">
+                        <i class="fas fa-code"></i>
+                        Skills
+                    </a>
+                </li>
+                <li>
+                    <a href="#certificates">
+                        <i class="fas fa-certificate"></i>
+                        Special Experience
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects">
+                        <i class="fas fa-project-diagram"></i>
+                        Case Study
+                    </a>
+                </li>
+                <li>
+                    <a href="#copies">
+                        <i class="fas fa-copy"></i>
+                        Creative Direction
+                    </a>
+                </li>
+                <li>
+                    <a href="#video-script">
+                        <i class="fas fa-video"></i>
+                        Video Script
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container" bis_skin_checked="1">
+            <div class="profile-img-container" bis_skin_checked="1">
+                <img src="https://i.postimg.cc/4NBh98Dc/94f2053e-4f61-4809-9951-a5d41e824c04.jpg" alt="YASSEN TAHA" class="profile-img">
+            </div>
+            <h1>YASSEN TAHA</h1>
+            <p> Social Media Specialist</p>
+            <div class="cta-buttons" bis_skin_checked="1">
+                <a href="#projects" class="cta-btn primary-btn">View My Work</a>
+                <a href="#contact" class="cta-btn secondary-btn">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section animate">
+        <div class="container" bis_skin_checked="1">
+            <div class="section-header" bis_skin_checked="1">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content" bis_skin_checked="1">
+                <div class="about-text" bis_skin_checked="1">
+                    <p>
+                      Social Media Specialist passionate about content strategy, creative direction, and audience-focused storytelling.
+                       I combine strategic thinking with hands-on execution, supported by my background in video editing,motion design and content production.
+
+My experience as a Program Researcher at Egypt Media Production City strengthened my content development, research, and media production skills. I enjoy creating content strategies that connect with audiences, drive engagement, and support business growth.
+                </div>
+                <div class="about-stats" bis_skin_checked="1">
+                    <div class="stat-item" bis_skin_checked="1">
+                        <div class="stat-number" bis_skin_checked="1">12+</div>
+                        <p>Months Experience</p>
+                    </div>
+                    <div class="stat-item" bis_skin_checked="1">
+                        <div class="stat-number" bis_skin_checked="1">60%</div>
+                        <p>Engagement Increase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section animate">
+        <div class="container" bis_skin_checked="1">
+            <div class="section-header" bis_skin_checked="1">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container" bis_skin_checked="1">
+                <div class="skill-category" bis_skin_checked="1">
+                    <h3><i class="fas fa-bullhorn"></i> Social Media Marketing</h3>
+                    <div class="skill-item" bis_skin_checked="1">
+                        <div class="skill-info" bis_skin_checked="1">
+                            <span>content strategy</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar" bis_skin_checked="1">
+                            <div class="skill-progress" style="width: 90%" bis_skin_checked="1"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" bis_skin_checked="1">
+                        <div class="skill-info" bis_skin_checked="1">
+                            <span>content planing</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar" bis_skin_checked="1">
+                            <div class="skill-progress" style="width: 85%" bis_skin_checked="1"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" bis_skin_checked="1">
+                        <div class="skill-info" bis_skin_checked="1">
+                            <span>audience research & competitor analysis</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar" bis_skin_checked="1">
+                            <div class="skill-progress" style="width: 80%" bis_skin_checked="1"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" bis_skin_checked="1">
+                        <div class="skill-info" bis_skin_checked="1">
+                            <span>Campaign Strategy &amp; Planning</span>
+                            <span>88%</span>
+                            
+                        </div>
+                        <div class="skill-bar" bis_skin_checked="1">
+                            <div class="skill-progress" style="width: 88%" bis_skin_checked="1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="skill-category" bis_skin_checked="1">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <div class="skill-item" bis_skin_checked="1">
+                        <div class="skill-info" bis_skin_checked="1">
+                            <span>Communication</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar" bis_skin_checked="1">
+                            <div class="skill-progress" style="width: 95%" bis_skin_checked="1"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" bis_skin_checked="1">
+                        <div class="skill-info" bis_skin_checked="1">
+                            <span>Teamwork</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar" bis_skin_checked="1">
+                            <div class="skill-progress" style="width: 90%" bis_skin_checked="1"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" bis_skin_checked="1">
+                        <div class="skill-info" bis_skin_checked="1">
+                            <span>Problem Solving</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar" bis_skin_checked="1">
+                            <div class="skill-progress" style="width: 92%" bis_skin_checked="1"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" bis_skin_checked="1">
+                        <div class="skill-info" bis_skin_checked="1">
+                            <span>Time Management</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar" bis_skin_checked="1">
+                            <div class="skill-progress" style="width: 88%" bis_skin_checked="1"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item" bis_skin_checked="1">
+                        <div class="skill-info" bis_skin_checked="1">
+                            <span>Adaptability</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar" bis_skin_checked="1">
+                            <div class="skill-progress" style="width: 90%" bis_skin_checked="1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="section animate">
+        <div class="container" bis_skin_checked="1">
+            <div class="section-header" bis_skin_checked="1">
+                <h2>Special Experience At Egypt Media Production City</h2>
+                <p>Worked as a Program Researcher on the TV programs "ELHEKAYA BEBASATA" on Melody Aflam  and "ESLOP HAYAH" on Al Shams Channel. Responsibilities included brainstorming episode ideas with the production team, researching topics, writing episode outlines and scripts, identifying and coordinating suitable guests based on each episode's theme, and supporting the management of the programs' social media presence to enhance audience engagement and audience reach.</p>
+           
+            
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section animate">
+        <div class="container" bis_skin_checked="1">
+            <div class="section-header" bis_skin_checked="1">
+                <h2>Case Study</h2>
+            <p>Social Media Strategy for TV Presenter</p>
+            <h1>Objective</h1>
+            <p>Increase awareness of the TV presenter and her programs, strengthen her digital presence, and keep the audience engaged through consistent and relevant content. The goal was also to expand reach, attract new followers, and drive viewership toward the TV programs</p>
+            <h1>Strategy</h1>
+
+<p>• Highlight key moments and insights from the programs</p>
+<p>• Create engaging content tailored to the target audience</p>
+<p>• Maintain a consistent posting schedule</p>
+<p>• Use social media to extend the program's impact beyond television</p>
+<p>• Encourage audience interaction through questions, discussions, and shareable content</p>
+            <h1>My Role</h1>
+            <p>•Content Planning</p>
+<p>•Content Ideas & Creative Direction</p>
+<p>•Social Media Management</p>
+         <p>•Copywriting</p>   
+
+            <h1>Results</h1>
+
+<p>•Achieved over [100.000] views across content</p>
+<p>• Increased audience engagement through comments, shares, and reactions</p>
+<p>• Contributed to growing the page's visibility and follower base</p>
+            <div class="copies-grid" bis_skin_checked="1">
+               
+                
+                
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/tJ6dJV9K/photo-2026-06-20-07-13-33.jpg" alt="Copy 4" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/tJ6dJV9w/photo-2026-06-20-07-13-34.jpg" alt="Copy 5" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/Xq5Kqyns/photo-2026-06-20-07-13-37.jpg" alt="Copy 6" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/gJQqGKbK/photo-2026-06-20-07-13-41.jpg" alt="Copy 7" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/8cvdcrTt/photo-2026-06-20-07-13-38.jpg" alt="Copy 8" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/zvhwvRqS/photo-2026-06-20-07-13-40-(2).jpg" alt="Copy 9" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/d3CR3TJB/photo-2026-06-20-07-13-40.jpg" alt="Copy 10" class="copy-img">
+                
+
+                    </div>
+                </div>
+                        </div>
+                        </div>
+    </section>
+
+    <section id="copies" class="section animate">
+        <div class="container" bis_skin_checked="1">
+            <div class="section-header" bis_skin_checked="1">
+                <h2>Creative Direction</h2>
+                <p>Build brand awareness and improve audience recognition through creative and impactful social media content.</p>
+            </div>
+            <div class="copies-grid" bis_skin_checked="1">
+               
+                
+                
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/5yQfHPXS/000000000000.jpg" alt="Copy 4" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/59z02089/kabtn-mhmd.jpg" alt="Copy 5" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/P5j8jD76/photo-20-01-11-10-6-3.jpg" alt="Copy 6" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/MH1KPPzn/Untitl5.jpg" alt="Copy 7" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/qqJZSgTZ/Untitled-55.jpg" alt="Copy 8" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/SKcTKcQj/Untitled-81.jpg" alt="Copy 9" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/G28k2Cjd/photo-2026-06-12-19-03-14.jpg" alt="Copy 10" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/TPHVfwgs/photo-2026-06-12-19-03-19.jpg" alt="Copy 11" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/Kzknz25Z/photo-2026-06-12-19-07-20.jpg" alt="Copy 12" class="copy-img">
+                </div>
+                <div class="copy-item" bis_skin_checked="1">
+                    <div class="copy-overlay" bis_skin_checked="1">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <img src="https://i.postimg.cc/XYj2HQj6/photo-2026-06-20-06-00-17.jpg" class="copy-img">
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <section id="video-script" class="section animate">
+        <div class="container" bis_skin_checked="1">
+            <div class="section-header" bis_skin_checked="1">
+                <h2>Video Script</h2>
+                <p>Strategic content planning and video script development for social media campaigns</p>
+                        </div>
+            <div class="video-script-content" bis_skin_checked="1">
+             
+             
+                <div class="script-files" bis_skin_checked="1">
+                    <h3>Video Script Documents</h3>
+                    <p>Professional video script development for various social media platforms and campaign types.</p>
+                    <div class="script-links" bis_skin_checked="1">
+                        <a href="c:\Users\ahmedtaha\Downloads\LAMIAA ELG\story telling.pdf" class="script-link" download="">
+                            <i class="fas fa-file-word"></i> Storytelling & Cinematic Script
+                        </a>
+                        <a href="https://i.postimg.cc/YSCd6mMk/Alnesr-Real-(1).png" class="script-link" download="">
+                            <i class="fas fa-file-word"></i> Real Estate Script "Elnesr"
+                        </a>
+                        <a href="c:\Users\ahmedtaha\Downloads\LAMIAA ELG\To flood motiongraphics.pdf" class="script-link" download="">
+                            <i class="fas fa-file-word"></i> motiongraphics Script
+                        </a>
+                        <a href="c:\Users\ahmedtaha\Downloads\LAMIAA ELG\cap core.pdf" class="script-link" download="">
+                            <i class="fas fa-file-word"></i> Creative Script
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section animate">
+        <div class="container" bis_skin_checked="1">
+            <div class="section-header" bis_skin_checked="1">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-container" bis_skin_checked="1">
+                <div class="contact-info" bis_skin_checked="1">
+                    <a href="https://wa.me/201027242031" class="contact-item contact-link" target="_blank">
+                        <div class="contact-icon" bis_skin_checked="1">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text" bis_skin_checked="1">
+                            <h4>WhatsApp</h4>
+                            <p>01027242031</p>
+                        </div>
+                
+                    </a>
+                
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" bis_skin_checked="1">
+            <div class="footer-content" bis_skin_checked="1">
+                <div class="footer-section" bis_skin_checked="1">
+                    <h3>YASSEN TAHA </h3>
+                    <p>Social Media Marketer creating engaging digital experiences.</p>
+                </div>
+                <div class="footer-section" bis_skin_checked="1">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#certificates">Special Experience</a></li>
+                        <li><a href="#projects">Case Study</a></li>
+                        <li><a href="#copies">Creative Direction</a></li>
+                        <li><a href="#video-script">Video Script</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            
+                </div>
+            </div>
+            <div class="footer-bottom" bis_skin_checked="1">
+                <p>© YASSEN TAHA . Creative strategies. Real growth .</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Image Viewing -->
+    <div id="imageModal" class="modal" bis_skin_checked="1" style="display: none;">
+        <span class="modal-close">×</span>
+        <img class="modal-content" id="modalImage" src="https://puplichost.github.io/Basel-Sharaf/Certifications/WhatsApp%20Image%202025-10-12%20at%202.09.47%20AM.jpeg" alt="Certificate 4">
+    </div>
+
+    <script>
+        // Add smooth scrolling to navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+
+        document.querySelectorAll('.section').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Update skill bars width on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.parentElement.previousElementSibling.lastElementChild.textContent;
+                }
+            });
+        });
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+
+        // Modal functionality for images
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.modal-close');
+
+        // Add click event listeners to all copy and certificate images
+        document.querySelectorAll('.copy-item, .certificate-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                modal.style.display = 'block';
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close modal when clicking the X button
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+    </script>
+
+
+</body></html>
